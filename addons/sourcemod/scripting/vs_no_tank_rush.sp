@@ -11,7 +11,7 @@ public Plugin myinfo = {
 	author = "Jahze, TouchMe",
 	version = "build0000",
 	description = "Stops distance points accumulating whilst the tank is alive, with the option of unfreezing distance on reaching the Saferoom",
-	url = "https://github.com/TouchMe-Inc/l4d2_no_tank_rush"
+	url = "https://github.com/TouchMe-Inc/l4d2_vs_no_tank_rush"
 };
 
 
