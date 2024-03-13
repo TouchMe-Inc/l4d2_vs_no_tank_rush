@@ -1,0 +1,22 @@
+"Phrases"
+{
+	"TAG"
+	{
+		"en"			"<{green}No Tank Rush{default}> "
+	}
+
+	"DEFROST_SAFEROOM"
+	{
+		"en"			"The points are unfrozen. Nice rush :c"
+	}
+
+	"FREEZE_POINTS"
+	{
+		"en"			"The points are frozen. Kill the tank!"
+	}
+
+	"DEFROST_POINTS"
+	{
+		"en"			"The points are unfrozen"
+	}
+}
