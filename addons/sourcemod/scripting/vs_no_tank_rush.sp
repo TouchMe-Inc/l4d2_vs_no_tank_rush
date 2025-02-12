@@ -9,8 +9,8 @@
 public Plugin myinfo = {
     name        = "NoTankRush",
     author      = "Jahze, TouchMe",
-    version     = "build0000",
     description = "Stops distance points accumulating whilst the tank is alive, with the option of unfreezing distance on reaching the Saferoom",
+    version     = "build0001",
     url         = "https://github.com/TouchMe-Inc/l4d2_vs_no_tank_rush"
 };
 
@@ -19,6 +19,7 @@ public Plugin myinfo = {
 
 #define CLASS_TANK              8
 
+#define OnEndVersusModeRound    L4D2_OnEndVersusModeRound
 #define IsTankInPlay            L4D2_IsTankInPlay
 #define SetVersusMaxScore       L4D_SetVersusMaxCompletionScore
 #define GetVersusMaxScore       L4D_GetVersusMaxCompletionScore
@@ -74,7 +75,7 @@ public void OnMapStart() {
     g_bIsPointsFrozen = false;
 }
 
-public Action L4D2_OnEndVersusModeRound(bool bHasSurvivor)
+public Action OnEndVersusModeRound(bool bHasSurvivor)
 {
     if (!IsPointsFrozen() || !bHasSurvivor || !GetConVarBool(g_cvDefrostSaferoom) || !IsTankInPlay()) {
         return Plugin_Continue;
@@ -132,11 +133,19 @@ void Event_TankReplaceBot(Event event, const char[] sEventName, bool bDontBroadc
 
     int iTank = GetClientOfUserId(GetEventInt(event, "bot"));
 
-    if (!IsClientInfected(iTank) || !IsClientTank(iTank) || HasPlayerTank()) {
-        return;
+    CreateTimer(1.0, Timer_TankReplaceBot, iTank, .flags = TIMER_FLAG_NO_MAPCHANGE);
+}
+
+Action Timer_TankReplaceBot(Handle timer, int iBot)
+{
+    if (!IsClientInGame(iBot) || !IsClientInfected(iBot) || !IsClientTank(iBot)
+    || HasPlayerTank()) {
+        return Plugin_Stop;
     }
 
     DefrostPoints();
+
+    return Plugin_Stop;
 }
 
 void FreezePoints()

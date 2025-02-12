@@ -1,0 +1,22 @@
+"Phrases"
+{
+	"TAG"
+	{
+		"ru"			"<{green}No Tank Rush{default}> "
+	}
+
+	"DEFROST_SAFEROOM"
+	{
+		"ru"			"Очки разморожены. Выжившие достигли убежища!"
+	}
+
+	"FREEZE_POINTS"
+	{
+		"ru"			"Очки заморожены. Убейте Танка!"
+	}
+
+	"DEFROST_POINTS"
+	{
+		"ru"			"Очки разморожены"
+	}
+}

@@ -7,7 +7,7 @@
 
 	"DEFROST_SAFEROOM"
 	{
-		"en"			"The points are unfrozen. Nice rush :c"
+		"en"			"The points are unfrozen. The survivors have reached saferoom!"
 	}
 
 	"FREEZE_POINTS"
